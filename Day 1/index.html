@@ -1,49 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+        }
+
+        .content-table thead tr {
+            background-color: rgb(122, 122, 122);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid lightgray;
+        }
+
+        .content-table tbody tr :nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        .font-style{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .fill{
+            align-content: center;
+            text-align: left;
+            size: 20px;
+            border-radius: 5px;
+            height: 2em;
+            width: 30em;
+            text-align: center;
+            text-size-adjust: 18px;
+            size: 3em;
+            color: black;
+            text-decoration: solid;
+            font-size: 18px;
+            background-color: blanchedalmond;
+            -webkit-text-stroke: #f3f3f3;
+
+        }
+        .sumb{
+            background-color: violet;
+            font-size: 40px;
+            border-radius: 18px;
+            box-shadow: black 2px;
+            text-transform: capitalize;
+        }
+    </style>
 </head>
+
 <body>
+    <h1>Form to Table</h1>
+    <form action="" id="data">
+        <label for="firstName" class="font-style" >FirstName:</label>
+        <input type="text" id="firstName" class="fill" required><br><br>
 
-<script>
+        <label for="lastName" class="font-style">LastName:</label>
+        <input type="text" id="lastName" class="fill"required><br><br>
 
-    // let heading = document.createElement('p');
-    // heading.innerHTML = 'Hello all';
-    // document.body.append(heading);
+        <label for="address" id="" class="font-style">Address</label>
+        <input type="text" name="" id="address" class="fill"required><br><br>
 
-    // let division = document.createElement('div');
-    // division.innerHTML = '';
+        <label for="pincode" id="" class="font-style">Pincode</label>
+        <input type="text" name="" id="pincode" class="fill" required ><br><br>
 
-    // let span = document.createElement('span');
-    // span.innerHTML = '';
-    // division.append(span);
-    // document.body.append(division);
+        <label for="gender" class="font-style">Gender:</label>
 
-    // // 
+        <select name="cars" id="gender" class="fill" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Transgender">Transgender</option>
+            <option value="Others">Others</option>
+        </select><br><br>
 
-    // let image = document.createElement('img');
-    // image.setAttribute('src','https://media.licdn.com/dms/image/C4D03AQEB1ryJvtXw9g/profile-displayphoto-shrink_800_800/0/1660022798752?e=2147483647&v=beta&t=FuYjnbYd4B3ApUAq-J--xk_dITsVVMm5lFpVRReH2Rg');
-    // image.innerHTML = '';
-    // image.style.height = '400px';
-    // image.style.width = '400px'
-    // document.body.append(image);
+        <label for="food" class="font-style" required>Food Choice:</label>
 
-    let div1= document.createElement('div');
-    div1.setAttribute =('class','container');
+        <select name="food" id="food" class="fill" required>
+            <option value="Kothu Parota">Kothu Parota</option>
+            <option value="Kalaki">Kalaki</option>
+            <option value="Beef Chukka">Beef Chukka</option>
+            <option value="Beef Tawa Kari">Beef Tawa Kari</option>
+        </select><br> <br>
 
-    let div2 = document.createElement('div');
-    div2.setAttribute = ('class','row');
+        <label for="state" id="" class="font-style">State</label>
+        <input type="text" name="" id="state" class="fill" required><br><br>
 
-    let div3 = document.createElement('div');
-    div3.setAttribute = ('class','col');
+        <label for="country" id="" class="font-style">Country</label>
+        <input type="text" name="" id="country"class="fill"required ><br><br>
 
-    div1.append(div2);
-    div2.append(div3)
-    document.body.append(div1);
-    
+        <input type="submit" value="submit" id="" class="sumb">
+    </form>
 
-</script>
+    <table id="table" class="content-table ">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Pincode</th>
+                <th>Gender</th>
+                <th>Food</th>
+                <th>State</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        const form = document.getElementById('data');
+
+        const tbody = document.getElementById('table');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const address = document.getElementById('address').value;
+            const pincode = document.getElementById('pincode').value;
+            const gender = document.getElementById('gender').value;
+            const food = document.getElementById('food').value;
+            const state = document.getElementById('state').value;
+            const country = document.getElementById('country').value;
+
+
+            const newRow = tbody.insertRow();
+
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            const cell3 = newRow.insertCell(2);
+            const cell4 = newRow.insertCell(3);
+            const cell5 = newRow.insertCell(4);
+            const cell6 = newRow.insertCell(5);
+            const cell7 = newRow.insertCell(6);
+            const cell8 = newRow.insertCell(7);
+
+            cell1.textContent = firstName;
+            cell2.textContent = lastName;
+            cell3.textContent = address;
+            cell4.textContent = pincode;
+            cell5.textContent = gender;
+            cell6.textContent = food;
+            cell7.textContent = state;
+            cell8.textContent = country;
+
+            form.reset();
+        });
+
+
+    </script>
 </body>
+
 </html>
